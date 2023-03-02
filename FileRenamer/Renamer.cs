@@ -2,7 +2,7 @@
 {
     public static class Renamer
     {
-        public static void RenameFiles(RenamingMethods methods, string[] fileNames)
+        public static void RenameFiles(RenameConfig methods, string[] fileNames)
         {
             int? number = methods.StartNumber;
 
@@ -31,7 +31,14 @@
                 var extension = Path.GetExtension(fileName);
                 newName = $"{directoryPath}\\{newName}{oldName}{extension}";
 
-                File.Move(fileName, newName);
+                try
+                {
+                    File.Move(fileName, newName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to rename file: {fileName} Error: {ex.Message}");
+                }
             }
         }
     }

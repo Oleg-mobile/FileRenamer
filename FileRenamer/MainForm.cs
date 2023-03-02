@@ -25,7 +25,7 @@
         {
             richTextBoxToRename.Clear();
 
-            if (openFileDialogToRename.FileNames.Length == 0)
+            if (!openFileDialogToRename.FileNames.Any())
             {
                 MessageBox.Show("No files selected!");
                 return;
@@ -37,7 +37,7 @@
                 return;
             }
 
-            var renamingMethods = new RenamingMethods
+            var renamingMethods = new RenameConfig
             {
                 UseNumbers = checkBoxNumbers.Checked,
                 UseExpression = checkBoxExpression.Checked,

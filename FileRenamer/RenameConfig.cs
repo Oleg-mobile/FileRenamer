@@ -1,6 +1,6 @@
 ﻿namespace FileRenamer
 {
-    public class RenamingMethods
+    public class RenameConfig
     {
         public bool UseNumbers { get; set; }
         public bool UseExpression { get; set; }
